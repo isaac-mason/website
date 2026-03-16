@@ -52,48 +52,56 @@ const entries: Entry[] = [
         title: 'crashcat custom voxel shape',
         image: '/feed/crashcat-custom-voxel-shape.webp',
         url: 'https://x.com/isaac_mason_/status/2019211802815639562',
+        tags: ['physics', 'collision']
     },
     {
         type: 'post',
         title: 'navcat custom areas',
         image: '/feed/navcat-custom-areas.webp',
         url: 'https://x.com/isaac_mason_/status/1967448730036220187',
+        tags: ['pathfinding']
     },
     {
         type: 'post',
         title: 'navcat doors and keys',
         image: '/feed/navcat-doors-and-keys.webp',
         url: 'https://x.com/isaac_mason_/status/1975527640825274431',
+        tags: ['pathfinding']
     },
     {
         type: 'post',
         title: 'introducing crashcat',
         image: '/feed/post-crashcat.webp',
         url: 'https://x.com/isaac_mason_/status/2021906714686280052',
+        tags: ['launch']
     },
     {
         type: 'post',
         title: 'navcat, meet world',
         image: '/feed/post-navcat.webp',
         url: 'https://x.com/isaac_mason_/status/1983893147605463154',
+        tags: ['launch']
     },
     {
         type: 'post',
         title: "import { crowd } from 'navcat/blocks'",
         image: '/feed/import-crowd.webp',
         url: 'https://x.com/isaac_mason_/status/1988012661884555729',
+        tags: ['crowd', 'pathfinding']
     },
     {
         type: 'post',
         title: 'crawlers',
         image: '/feed/crawlers.webp',
         url: 'https://x.com/isaac_mason_/status/1916673724452934098',
+        tags: ['inverse kinematics']
     },
     {
         type: 'post',
         title: 'another javascript car',
         image: '/feed/another-javascript-car.webp',
         url: 'https://x.com/isaac_mason_/status/1989289209463701854',
+        tags: ['raycast vehicle']
     },
     {
         type: 'sketch',
@@ -104,7 +112,7 @@ const entries: Entry[] = [
     },
     {
         type: 'sketch',
-        title: 'Marching Cubes',
+        title: 'marching cubes',
         image: '/feed/marching-cubes.webp',
         url: 'https://sketches.isaacmason.com/sketch/marching-cubes',
         tags: ['c++', 'webassembly'],
@@ -114,18 +122,14 @@ const entries: Entry[] = [
         title: 'snek',
         image: '/feed/snek.webp',
         url: 'https://sketches.isaacmason.com/sketch/snek',
+        tags: ['fabrik', 'inverse kinematics'],
     },
     {
         type: 'post',
         title: 'navmesh generator website',
         image: '/feed/navmesh-website.webp',
         url: 'https://x.com/isaac_mason_/status/1705134257130402287',
-    },
-    {
-        type: 'post',
-        title: 'javascript car',
-        image: '/feed/javascript-car.webp',
-        url: 'https://x.com/isaac_mason_/status/1601800966319538176',
+        tags: ['navmesh', 'webapp']
     },
 ];
 
@@ -143,7 +147,7 @@ function Link({ href, children }: { href: string; children: React.ReactNode }) {
 }
 
 function EntryCard({ type, title, image: coverImage, url, tags }: Entry) {
-    const allTags = [type, ...(tags ?? [])];
+    const contentTags = tags ?? [];
     return (
         <a
             href={url}
@@ -151,19 +155,23 @@ function EntryCard({ type, title, image: coverImage, url, tags }: Entry) {
             rel="noopener noreferrer"
             className="group flex flex-col no-underline border border-white/20 overflow-hidden transition-colors duration-300 hover:border-white/60"
         >
-            <img src={coverImage} alt={title} className="w-full aspect-[4/3] object-cover block" />
+            <div className="relative">
+                <img src={coverImage} alt={title} className="w-full aspect-[4/3] object-cover block" />
+                <span className="absolute top-1.5 left-1.5 text-xs bg-black/70 text-white/70 px-1.5 py-0.5 leading-none">
+                    {type}
+                </span>
+            </div>
             <div className="flex flex-col gap-2 p-2 sm:p-3 flex-1">
-                <span className="text-xs sm:text-sm tracking-wider uppercase leading-tight">{title}</span>
-                <div className="flex flex-wrap gap-1.5 mt-auto">
-                    {allTags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="text-xs text-white/70 border border-white/25 px-1.5 py-0.5 leading-none uppercase"
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+                <span className="text-xs sm:text-sm tracking-wider leading-tight">{title}</span>
+                {contentTags.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mt-auto">
+                        {contentTags.map((tag) => (
+                            <span key={tag} className="text-xs text-white/70 border border-white/25 px-1.5 py-0.5 leading-none">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
             </div>
         </a>
     );
@@ -183,14 +191,26 @@ export function Homepage() {
                     <Link href="https://www.linkedin.com/in/isaac-charles-grant-mason/">LinkedIn</Link>
                 </div>
 
-                <div className="mt-12 flex flex-col gap-8 text-sm md:text-base max-w-2xl">
-                    <p className="text-white/80">
-                        I'm a software engineer in Australia building open source technology for games and advanced web
-                        applications.
-                    </p>
+                <p className="mt-6 text-sm md:text-base text-white/80 max-w-2xl text-center">
+                    I'm a software engineer in Australia building open source technology for games and advanced web applications.
+                </p>
+            </div>
 
+            {/* Feed */}
+            <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+                    {entries.map((entry) => (
+                        <EntryCard key={entry.url} {...entry} />
+                    ))}
+                </div>
+            </main>
+
+            {/* Experience */}
+            <section className="w-full max-w-2xl mx-auto px-4 sm:px-6 pb-16">
+                <h2 className="text-white text-base md:text-lg mb-6">Experience</h2>
+                <div className="flex flex-col gap-8 text-sm md:text-base">
                     <div>
-                        <h2 className="text-white text-base md:text-lg">Open Source - 2026</h2>
+                        <h3 className="text-white text-base md:text-lg">Open Source - 2026</h3>
                         <ul className="mt-2 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Created <Link href="https://navcat.dev">navcat</Link>, a navigation mesh generation and
@@ -213,6 +233,13 @@ export function Homepage() {
                                 JavaScript objects.
                             </li>
                             <li>
+                                Created{' '}
+                                <Link href="https://github.com/isaac-mason/recast-navigation-js">recast-navigation-js</Link>, a
+                                WebAssembly port of the C++ Recast navigation library. Most new development now goes into navcat,
+                                but recast-navigation-js is still actively maintained and widely used including in BabylonJS. It
+                                is largely feature complete against it's upstream c++ library.
+                            </li>
+                            <li>
                                 Currently building "gatho" (unreleased, working title), a toolkit for building and hosting
                                 JavaScript multiplayer games.
                             </li>
@@ -221,25 +248,18 @@ export function Homepage() {
                                 offer a balance of ease-of-use and lower-level access.
                             </li>
                             <li>
-                                Created{' '}
-                                <Link href="https://github.com/isaac-mason/recast-navigation-js">recast-navigation-js</Link>, a
-                                WebAssembly port of the C++ Recast navigation library. Most new development now goes into navcat,
-                                but recast-navigation-js is still actively maintained and widely used including in BabylonJS. It
-                                is largely feature complete against it's upstream c++ library.
-                            </li>
-                            <li>
                                 Maintaining <Link href="https://github.com/pmndrs/react-three-rapier">@react-three/rapier</Link>,
                                 a @react-three/fiber integration for the Rapier physics engine.
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h2 className="text-white text-base md:text-lg">
+                        <h3 className="text-white text-base md:text-lg">
                             <Link href="https://jamango.io/">Jamango!</Link> - 2024 ~ 2026
-                        </h2>
+                        </h3>
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
-                                Joined part-way into the product’s development. Journeyed with the team through several major
+                                Joined part-way into the product's development. Journeyed with the team through several major
                                 product iterations, from several versions of visual based programming language, to later
                                 iterations of a JavaScript game creation API.
                             </li>
@@ -273,7 +293,7 @@ export function Homepage() {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="text-white text-base md:text-lg">Amazon, Grocery Technology - 2021 ~ 2024</h2>
+                        <h3 className="text-white text-base md:text-lg">Amazon, Grocery Technology - 2021 ~ 2024</h3>
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Designed and built a grocery warehouse management web application that visualises outbound
@@ -294,28 +314,19 @@ export function Homepage() {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="text-white text-base md:text-lg">Studio None - 2020 ~ 2021</h2>
+                        <h3 className="text-white text-base md:text-lg">Studio None - 2020 ~ 2021</h3>
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>Full stack web development for client websites, AWS infrastructure management with Terraform.</li>
                         </ul>
                     </div>
                     <div>
-                        <h2 className="text-white text-base md:text-lg">Experimentary - 2019 ~ 2021</h2>
+                        <h3 className="text-white text-base md:text-lg">Experimentary - 2019 ~ 2021</h3>
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>Built an online science education platform used in school classrooms and homeschools.</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-
-            <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-16">
-                <h2 className="text-white text-base md:text-lg mb-6">Links</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-                    {entries.map((entry) => (
-                        <EntryCard key={entry.url} {...entry} />
-                    ))}
-                </div>
-            </main>
+            </section>
         </div>
     );
 }
