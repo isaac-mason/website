@@ -52,56 +52,56 @@ const entries: Entry[] = [
         title: 'crashcat custom voxel shape',
         image: '/feed/crashcat-custom-voxel-shape.webp',
         url: 'https://x.com/isaac_mason_/status/2019211802815639562',
-        tags: ['physics', 'collision']
+        tags: ['physics', 'collision'],
     },
     {
         type: 'post',
         title: 'navcat custom areas',
         image: '/feed/navcat-custom-areas.webp',
         url: 'https://x.com/isaac_mason_/status/1967448730036220187',
-        tags: ['pathfinding']
+        tags: ['pathfinding'],
     },
     {
         type: 'post',
         title: 'navcat doors and keys',
         image: '/feed/navcat-doors-and-keys.webp',
         url: 'https://x.com/isaac_mason_/status/1975527640825274431',
-        tags: ['pathfinding']
+        tags: ['pathfinding'],
     },
     {
         type: 'post',
         title: 'introducing crashcat',
         image: '/feed/post-crashcat.webp',
         url: 'https://x.com/isaac_mason_/status/2021906714686280052',
-        tags: ['launch']
+        tags: ['launch'],
     },
     {
         type: 'post',
         title: 'navcat, meet world',
         image: '/feed/post-navcat.webp',
         url: 'https://x.com/isaac_mason_/status/1983893147605463154',
-        tags: ['launch']
+        tags: ['launch'],
     },
     {
         type: 'post',
         title: "import { crowd } from 'navcat/blocks'",
         image: '/feed/import-crowd.webp',
         url: 'https://x.com/isaac_mason_/status/1988012661884555729',
-        tags: ['crowd', 'pathfinding']
+        tags: ['crowd', 'pathfinding'],
     },
     {
         type: 'post',
         title: 'crawlers',
         image: '/feed/crawlers.webp',
         url: 'https://x.com/isaac_mason_/status/1916673724452934098',
-        tags: ['inverse kinematics']
+        tags: ['inverse kinematics'],
     },
     {
         type: 'post',
         title: 'another javascript car',
         image: '/feed/another-javascript-car.webp',
         url: 'https://x.com/isaac_mason_/status/1989289209463701854',
-        tags: ['raycast vehicle']
+        tags: ['raycast vehicle'],
     },
     {
         type: 'sketch',
@@ -129,7 +129,7 @@ const entries: Entry[] = [
         title: 'navmesh generator website',
         image: '/feed/navmesh-website.webp',
         url: 'https://x.com/isaac_mason_/status/1705134257130402287',
-        tags: ['navmesh', 'webapp']
+        tags: ['navmesh', 'webapp'],
     },
 ];
 
@@ -180,20 +180,19 @@ function EntryCard({ type, title, image: coverImage, url, tags }: Entry) {
 export function Homepage() {
     return (
         <div className="min-h-screen flex flex-col">
+            {/* Hero */}
             <div className="flex flex-col items-center justify-center pt-24 sm:pt-32 md:pt-40 pb-12 px-4">
-                {/* hero */}
-                <h1 className="text-white text-5xl md:text-8xl mb-4">Hey, I'm Isaac</h1>
+                <h1 className="text-white text-5xl md:text-8xl">Hey, I'm Isaac</h1>
 
-                {/* links */}
-                <div className="flex gap-6 justify-center items-center text-md">
+                <p className="mt-4 text-base md:text-lg text-white/80 max-w-2xl text-center">
+                    I'm a software engineer in Australia building open source technology for games and complex web applications.
+                </p>
+
+                <div className="mt-4 flex gap-6 justify-center items-center text-md">
                     <Link href="https://github.com/isaac-mason">GitHub</Link>
                     <Link href="https://x.com/isaac_mason_">X</Link>
                     <Link href="https://www.linkedin.com/in/isaac-charles-grant-mason/">LinkedIn</Link>
                 </div>
-
-                <p className="mt-6 text-sm md:text-base text-white/80 max-w-2xl text-center">
-                    I'm a software engineer in Australia building open source technology for games and complex web applications.
-                </p>
             </div>
 
             {/* Feed */}
@@ -207,8 +206,8 @@ export function Homepage() {
 
             {/* Experience */}
             <section className="w-full max-w-2xl mx-auto px-4 sm:px-6 pb-16">
-                <h2 className="text-white text-base md:text-lg mb-6">Experience</h2>
-                <div className="flex flex-col gap-8 text-sm md:text-base">
+                <h2 className="text-white text-lg md:text-2xl mb-6">Experience</h2>
+                <div className="flex flex-col gap-8 text-base md:text-lg">
                     <div>
                         <h3 className="text-white text-base md:text-lg">Open Source - 2026</h3>
                         <ul className="mt-2 flex flex-col gap-1 text-white/80 list-disc list-inside">
@@ -260,7 +259,7 @@ export function Homepage() {
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Joined part-way into the product's development. Journeyed with the team through several major
-                                product iterations, from several versions of visual based programming language, to later
+                                product iterations, from several versions of a visual based programming language, to later,
                                 iterations of a JavaScript game creation API.
                             </li>
                             <li>
