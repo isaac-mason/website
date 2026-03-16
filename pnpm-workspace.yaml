@@ -1,0 +1,6 @@
+packages:
+  - home
+  - blog
+
+overrides:
+  gpucat: link:../gpucat

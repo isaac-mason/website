@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Geist Pixel Square";
+    src: url("/GeistPixel-Square.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --default-font-family: "Geist Pixel Square", monospace;
+  --color-accent: #fb923c;
+  --color-accent-hover: #fdba74;
+}
+
+html,
+body {
+    margin: 0;
+    background-color: #000;
+    font-family: var(--default-font-family);
+    color: #efefef;
+}
