@@ -192,7 +192,7 @@ export function Homepage() {
                 </div>
 
                 <p className="mt-6 text-sm md:text-base text-white/80 max-w-2xl text-center">
-                    I'm a software engineer in Australia building open source technology for games and advanced web applications.
+                    I'm a software engineer in Australia building open source technology for games and complex web applications.
                 </p>
             </div>
 
