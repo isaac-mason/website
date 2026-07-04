@@ -209,7 +209,7 @@ export function Homepage() {
                 <h2 className="text-white text-lg md:text-2xl mb-6">Experience</h2>
                 <div className="flex flex-col gap-8 text-base md:text-lg">
                     <div>
-                        <h3 className="text-white text-base md:text-lg">Open Source - 2026</h3>
+                        <h3 className="text-white text-base md:text-lg">Open Source - 2023 ~ 2026</h3>
                         <ul className="mt-2 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Created <Link href="https://navcat.dev">navcat</Link>, a navigation mesh generation and
@@ -227,9 +227,17 @@ export function Homepage() {
                                 Box2D.
                             </li>
                             <li>
+                                Created <Link href="https://github.com/isaac-mason/gpucat">gpucat</Link>, a node-based WebGPU renderer that aims to
+                                offer a balance of ease-of-use, type-safety working with WebGPU, and lower-level access.
+                            </li>
+                            <li>
                                 Created <Link href="https://github.com/isaac-mason/packcat">packcat</Link>, a binary ser/des
                                 library optimised for multiplayer game datatypes, that feels as natural as working with regular
                                 JavaScript objects.
+                            </li>
+                            <li>
+                                Currently building <Link href="https://github.com/isaac-mason/gatho">gatho</Link> (unreleased, working title), a toolkit for building and hosting
+                                JavaScript multiplayer games.
                             </li>
                             <li>
                                 Created{' '}
@@ -237,14 +245,6 @@ export function Homepage() {
                                 WebAssembly port of the C++ Recast navigation library. Most new development now goes into navcat,
                                 but recast-navigation-js is still actively maintained and widely used including in BabylonJS. It
                                 is largely feature complete against it's upstream c++ library.
-                            </li>
-                            <li>
-                                Currently building "gatho" (unreleased, working title), a toolkit for building and hosting
-                                JavaScript multiplayer games.
-                            </li>
-                            <li>
-                                Currently building "gpucat" (unreleased, working title), a node-based WebGPU renderer that aims to
-                                offer a balance of ease-of-use and lower-level access.
                             </li>
                             <li>
                                 Maintaining <Link href="https://github.com/pmndrs/react-three-rapier">@react-three/rapier</Link>,
