@@ -14,120 +14,132 @@ const entries: Entry[] = [
     {
         type: 'repo',
         title: 'crashcat',
-        image: '/feed/crashcat.webp',
+        image: 'crashcat.webp',
         url: 'https://github.com/isaac-mason/crashcat',
     },
     {
         type: 'repo',
         title: 'navcat',
-        image: '/feed/navcat.webp',
+        image: 'navcat.webp',
         url: 'https://github.com/isaac-mason/navcat',
     },
     {
         type: 'repo',
+        title: 'gpucat',
+        image: 'gpucat.webp',
+        url: 'https://github.com/isaac-mason/gpucat',
+    },
+    {
+        type: 'repo',
+        title: 'compilecat',
+        image: 'compilecat.webp',
+        url: 'https://github.com/isaac-mason/compilecat',
+    },
+    {
+        type: 'repo',
         title: 'packcat',
-        image: '/feed/packcat.webp',
+        image: 'packcat.webp',
         url: 'https://github.com/isaac-mason/packcat',
     },
     {
         type: 'repo',
         title: 'mathcat',
-        image: '/feed/mathcat.webp',
+        image: 'mathcat.webp',
         url: 'https://github.com/isaac-mason/mathcat',
     },
     {
         type: 'repo',
         title: 'recast-navigation-js',
-        image: '/feed/recast-navigation-js.webp',
+        image: 'recast-navigation-js.webp',
         url: 'https://github.com/isaac-mason/recast-navigation-js',
     },
     {
         type: 'repo',
         title: 'js-physics-benchmarks',
-        image: '/feed/js-physics-benchmarks.webp',
+        image: 'js-physics-benchmarks.webp',
         url: 'https://github.com/isaac-mason/js-physics-benchmarks',
     },
     {
         type: 'post',
         title: 'crashcat custom voxel shape',
-        image: '/feed/crashcat-custom-voxel-shape.webp',
+        image: 'crashcat-custom-voxel-shape.webp',
         url: 'https://x.com/isaac_mason_/status/2019211802815639562',
         tags: ['physics', 'collision'],
     },
     {
         type: 'post',
         title: 'navcat custom areas',
-        image: '/feed/navcat-custom-areas.webp',
+        image: 'navcat-custom-areas.webp',
         url: 'https://x.com/isaac_mason_/status/1967448730036220187',
         tags: ['pathfinding'],
     },
     {
         type: 'post',
         title: 'navcat doors and keys',
-        image: '/feed/navcat-doors-and-keys.webp',
+        image: 'navcat-doors-and-keys.webp',
         url: 'https://x.com/isaac_mason_/status/1975527640825274431',
         tags: ['pathfinding'],
     },
     {
         type: 'post',
         title: 'introducing crashcat',
-        image: '/feed/post-crashcat.webp',
+        image: 'post-crashcat.webp',
         url: 'https://x.com/isaac_mason_/status/2021906714686280052',
         tags: ['launch'],
     },
     {
         type: 'post',
         title: 'navcat, meet world',
-        image: '/feed/post-navcat.webp',
+        image: 'post-navcat.webp',
         url: 'https://x.com/isaac_mason_/status/1983893147605463154',
         tags: ['launch'],
     },
     {
         type: 'post',
         title: "import { crowd } from 'navcat/blocks'",
-        image: '/feed/import-crowd.webp',
+        image: 'import-crowd.webp',
         url: 'https://x.com/isaac_mason_/status/1988012661884555729',
         tags: ['crowd', 'pathfinding'],
     },
     {
         type: 'post',
         title: 'crawlers',
-        image: '/feed/crawlers.webp',
+        image: 'crawlers.webp',
         url: 'https://x.com/isaac_mason_/status/1916673724452934098',
         tags: ['inverse kinematics'],
     },
     {
         type: 'post',
         title: 'another javascript car',
-        image: '/feed/another-javascript-car.webp',
+        image: 'another-javascript-car.webp',
         url: 'https://x.com/isaac_mason_/status/1989289209463701854',
         tags: ['raycast vehicle'],
     },
     {
         type: 'sketch',
         title: 'splatcrashnav',
-        image: '/feed/splatcrashnav.webp',
+        image: 'splatcrashnav.webp',
         url: 'https://sketches.isaacmason.com/sketch/splatcrashnav',
         tags: ['splat', 'physics', 'navigation'],
     },
     {
         type: 'sketch',
         title: 'marching cubes',
-        image: '/feed/marching-cubes.webp',
+        image: 'marching-cubes.webp',
         url: 'https://sketches.isaacmason.com/sketch/marching-cubes',
         tags: ['c++', 'webassembly'],
     },
     {
         type: 'sketch',
         title: 'snek',
-        image: '/feed/snek.webp',
+        image: 'snek.webp',
         url: 'https://sketches.isaacmason.com/sketch/snek',
         tags: ['fabrik', 'inverse kinematics'],
     },
     {
         type: 'post',
         title: 'navmesh generator website',
-        image: '/feed/navmesh-website.webp',
+        image: 'navmesh-website.webp',
         url: 'https://x.com/isaac_mason_/status/1705134257130402287',
         tags: ['navmesh', 'webapp'],
     },
@@ -209,7 +221,16 @@ export function Homepage() {
                 <h2 className="text-white text-lg md:text-2xl mb-6">Experience</h2>
                 <div className="flex flex-col gap-8 text-base md:text-lg">
                     <div>
-                        <h3 className="text-white text-base md:text-lg">Open Source - 2023 ~ 2026</h3>
+                        <h3 className="text-white text-base md:text-lg">Consulting - 2026 ~ Present</h3>
+                        <p className="mt-2 text-white/80">
+                            Consulting for various clients in the areas of web game development and open source software.
+                        </p>
+                        <p className="mt-2 text-white/80">
+                            Currently open to new consulting opportunities. Reach out on LinkedIn / X!
+                        </p>
+                    </div>
+                    <div>
+                        <h3 className="text-white text-base md:text-lg">Open Source - 2023 ~ Present</h3>
                         <ul className="mt-2 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Created <Link href="https://navcat.dev">navcat</Link>, a navigation mesh generation and
@@ -227,8 +248,13 @@ export function Homepage() {
                                 Box2D.
                             </li>
                             <li>
-                                Created <Link href="https://github.com/isaac-mason/gpucat">gpucat</Link>, a node-based WebGPU renderer that aims to
-                                offer a balance of ease-of-use, type-safety working with WebGPU, and lower-level access.
+                                Created <Link href="https://github.com/isaac-mason/gpucat">gpucat</Link>, a node-based WebGPU
+                                renderer that aims to offer a balance of ease-of-use, type-safety working with WebGPU, and
+                                lower-level access.
+                            </li>
+                            <li>
+                                Created <Link href="https://github.com/isaac-mason/compilecat">compilecat</Link>, a tool for
+                                optimizing TypeScript code using approaches from Google Closure and LLVM.
                             </li>
                             <li>
                                 Created <Link href="https://github.com/isaac-mason/packcat">packcat</Link>, a binary ser/des
@@ -236,8 +262,7 @@ export function Homepage() {
                                 JavaScript objects.
                             </li>
                             <li>
-                                Currently building <Link href="https://github.com/isaac-mason/gatho">gatho</Link> (unreleased, working title), a toolkit for building and hosting
-                                JavaScript multiplayer games.
+                                Currently building <Link href="https://github.com/isaac-mason/gatho">gatho</Link>, a toolkit for building and hosting JavaScript multiplayer games.
                             </li>
                             <li>
                                 Created{' '}
