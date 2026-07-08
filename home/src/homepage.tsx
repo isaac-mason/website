@@ -5,12 +5,19 @@ type EntryBase = {
     tags?: string[];
 };
 
+type ProjectEntry = EntryBase & { type: 'project' };
 type PostEntry = EntryBase & { type: 'post' };
 type SketchEntry = EntryBase & { type: 'sketch' };
 type RepoEntry = EntryBase & { type: 'repo' };
-type Entry = PostEntry | SketchEntry | RepoEntry;
+type Entry = ProjectEntry | PostEntry | SketchEntry | RepoEntry;
 
 const entries: Entry[] = [
+    {
+        type: 'project',
+        title: 'bongle.io',
+        image: 'bongle-cover.webp',
+        url: 'https://bongle.io/',
+    },
     {
         type: 'repo',
         title: 'crashcat',
@@ -65,6 +72,13 @@ const entries: Entry[] = [
         image: 'crashcat-custom-voxel-shape.webp',
         url: 'https://x.com/isaac_mason_/status/2019211802815639562',
         tags: ['physics', 'collision'],
+    },
+    {
+        type: 'post',
+        title: 'compilecat release',
+        image: 'compilecat-post.webp',
+        url: 'https://x.com/isaac_mason_/status/2065245578704085040',
+        tags: ['compiler', 'optimization'],
     },
     {
         type: 'post',
@@ -223,10 +237,21 @@ export function Homepage() {
                     <div>
                         <h3 className="text-white text-base md:text-lg">Consulting - 2026 ~ Present</h3>
                         <p className="mt-2 text-white/80">
-                            Consulting for various clients in the areas of web game development and open source software.
+                            Working for various clients in the areas of web game development and open source software.
                         </p>
                         <p className="mt-2 text-white/80">
-                            Currently open to new consulting opportunities. Reach out on LinkedIn / X!
+                            Currently open to new consulting opportunities. Reach out on <Link href="https://linkedin.com/in/isaac-charles-grant-mason/">LinkedIn</Link> or <Link href="https://x.com/isaac_mason_">X</Link>!
+                        </p>
+                    </div>
+                    <div>
+                        <h3 className="text-white text-base md:text-lg">
+                            <Link href="https://bongle.io/">bongle.io</Link> - 2026 ~ Present
+                        </h3>
+                        <p className="mt-2 text-white/80">
+                            Building a web game engine and platform for casual multiplayer games.
+                        </p>
+                        <p className="mt-2 text-white/80">
+                            FOSS engine, powered by *cats.
                         </p>
                     </div>
                     <div>
