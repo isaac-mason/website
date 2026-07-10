@@ -32,6 +32,12 @@ const entries: Entry[] = [
     },
     {
         type: 'repo',
+        title: 'gatho',
+        image: 'gatho.webp',
+        url: 'https://github.com/isaac-mason/gatho',
+    },
+    {
+        type: 'repo',
         title: 'gpucat',
         image: 'gpucat.webp',
         url: 'https://github.com/isaac-mason/gpucat',
