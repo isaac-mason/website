@@ -13,12 +13,6 @@ type Entry = ProjectEntry | PostEntry | SketchEntry | RepoEntry;
 
 const entries: Entry[] = [
     {
-        type: 'project',
-        title: 'bongle.io',
-        image: 'bongle-cover.webp',
-        url: 'https://bongle.io/',
-    },
-    {
         type: 'repo',
         title: 'crashcat',
         image: 'crashcat.webp',
@@ -251,13 +245,10 @@ export function Homepage() {
                     </div>
                     <div>
                         <h3 className="text-white text-base md:text-lg">
-                            <Link href="https://bongle.io/">bongle.io</Link> - 2026 ~ Present
+                            unreleased! - 2026 ~ Present
                         </h3>
                         <p className="mt-2 text-white/80">
                             Building a web game engine and platform for casual multiplayer games.
-                        </p>
-                        <p className="mt-2 text-white/80">
-                            FOSS engine, powered by *cats.
                         </p>
                     </div>
                     <div>
