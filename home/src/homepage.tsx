@@ -324,16 +324,16 @@ export function Homepage() {
                             <li>
                                 Created <Link href="https://navcat.dev">navcat</Link>, a navigation mesh generation and
                                 pathfinding library. The software is an iteration on ideas in the open source C++ recast
-                                navigation library. It goes beyond recast-navigation library in implementing support for dynamic
-                                off-mesh connections, any-tile to any-tile off mesh connections. It provides a more "JavaScript
-                                native" API, uses fully JSON-serializable data structrures, and makes as few compromises on
+                                navigation library. It goes beyond the recast-navigation library in implementing support for dynamic
+                                off-mesh connections, any-tile to any-tile off-mesh connections. It provides a more "JavaScript
+                                native" API, uses fully JSON-serializable data structures, and makes as few compromises on
                                 performance as possible in JavaScript. People cold-DM me thanking me for creating it, I think I
                                 did a good job.
                             </li>
                             <li>
                                 Created <Link href="https://crashcat.dev">crashcat</Link>, a 3D rigid body physics engine with
                                 support for convex and trimesh shapes, raycasting, shapecasting, continuous collision detection,
-                                more. Built in pure JavaScript, with technical inspiration taken from JoltPhysics, Bullet, and
+                                and more. Built in pure JavaScript, with technical inspiration taken from JoltPhysics, Bullet, and
                                 Box2D.
                             </li>
                             <li>
@@ -343,7 +343,7 @@ export function Homepage() {
                             </li>
                             <li>
                                 Created <Link href="https://github.com/isaac-mason/compilecat">compilecat</Link>, a tool for
-                                optimizing TypeScript code using approaches from Google Closure and LLVM.
+                                optimising TypeScript code using approaches from Google Closure and LLVM.
                             </li>
                             <li>
                                 Created <Link href="https://github.com/isaac-mason/packcat">packcat</Link>, a binary ser/des
@@ -358,7 +358,7 @@ export function Homepage() {
                                 <Link href="https://github.com/isaac-mason/recast-navigation-js">recast-navigation-js</Link>, a
                                 WebAssembly port of the C++ Recast navigation library. Most new development now goes into navcat,
                                 but recast-navigation-js is still actively maintained and widely used including in BabylonJS. It
-                                is largely feature complete against it's upstream c++ library.
+                                is largely feature complete against its upstream C++ library.
                             </li>
                             <li>
                                 Maintaining <Link href="https://github.com/pmndrs/react-three-rapier">@react-three/rapier</Link>,
@@ -373,7 +373,7 @@ export function Homepage() {
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Joined part-way into the product's development. Journeyed with the team through several major
-                                product iterations, from several versions of a visual based programming language, to later,
+                                product iterations, from several versions of a visual-based programming language, to later,
                                 iterations of a JavaScript game creation API.
                             </li>
                             <li>
@@ -384,8 +384,8 @@ export function Homepage() {
                                 High agency role in product development - spearheaded development of several major features that
                                 are now core to Jamango such as the "props" (game entity) system, the "items" API. Also
                                 spearheaded development of several major features that gave us new information, which got put in
-                                the bin, such as 2 major iterations on the visual programming language before the pivot to code
-                                based APIs, several higher level game creation features that helped us find the level of
+                                the bin, such as 2 major iterations on the visual programming language before the pivot to
+                                code-based APIs, several higher-level game creation features that helped us find the level of
                                 abstraction the tools should offer.
                             </li>
                             <li>Implemented physics with a custom C++ / WASM interface around Jolt Physics.</li>
@@ -396,7 +396,7 @@ export function Homepage() {
                             <li>Creation and maintenance of AWS infrastructure for dedicated game servers.</li>
                             <li>
                                 Building and reworking of content management infrastructure for managing game assets through
-                                several product pivots, from "assets" being high level items in a game-like inventory, to "assets"
+                                several product pivots, from "assets" being high-level items in a game-like inventory, to "assets"
                                 being node graphs, to "assets" being files in a virtual filesystem.
                             </li>
                             <li>
@@ -410,7 +410,7 @@ export function Homepage() {
                         <ul className="mt-1 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
                                 Designed and built a grocery warehouse management web application that visualises outbound
-                                operations and provides problem solving tools used by grocery fulfilment centres in the US, EU,
+                                operations and provides problem-solving tools used by grocery fulfilment centres in the US, EU,
                                 India, and Japan.
                             </li>
                             <li>
