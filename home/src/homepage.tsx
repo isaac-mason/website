@@ -322,6 +322,11 @@ export function Homepage() {
                         <h3 className="text-white text-base md:text-lg">Open Source - 2023 ~ Present</h3>
                         <ul className="mt-2 flex flex-col gap-1 text-white/80 list-disc list-inside">
                             <li>
+                                Created <Link href="https://github.com/pmndrs/math">math</Link>, the playful web's
+                                math engine. A growing kitchen sink of fast, carefully crafted math primitives for building
+                                interactive games and applications, and the new foundation of navcat and crashcat.
+                            </li>
+                            <li>
                                 Created <Link href="https://navcat.dev">navcat</Link>, a navigation mesh generation and
                                 pathfinding library. The software is an iteration on ideas in the open source C++ recast
                                 navigation library. It goes beyond the recast-navigation library in implementing support for dynamic
@@ -352,6 +357,14 @@ export function Homepage() {
                             </li>
                             <li>
                                 Currently building <Link href="https://github.com/isaac-mason/gatho">gatho</Link>, a toolkit for building and hosting JavaScript multiplayer games.
+                            </li>
+                            <li>
+                                Currently building <Link href="https://github.com/isaac-mason/tumble">tumble</Link>, a C++ 3D
+                                rigid body physics engine for WebAssembly, built for games, simulations, and creative websites.
+                            </li>
+                            <li>
+                                Currently building <Link href="https://github.com/isaac-mason/roam">roam</Link>, a C++
+                                navigation mesh construction and querying toolkit for 3D floor-based navigation.
                             </li>
                             <li>
                                 Created{' '}
