@@ -14,57 +14,101 @@ type Entry = ProjectEntry | PostEntry | SketchEntry | RepoEntry;
 const entries: Entry[] = [
     {
         type: 'repo',
+        title: 'math',
+        image: 'math.webp',
+        url: 'https://github.com/pmndrs/math',
+        tags: ['math', 'geometry', 'js'],
+    },
+    {
+        type: 'repo',
         title: 'crashcat',
         image: 'crashcat.webp',
         url: 'https://github.com/isaac-mason/crashcat',
+        tags: ['physics', 'js'],
     },
     {
         type: 'repo',
         title: 'navcat',
         image: 'navcat.webp',
         url: 'https://github.com/isaac-mason/navcat',
-    },
-    {
-        type: 'repo',
-        title: 'gatho',
-        image: 'gatho.webp',
-        url: 'https://github.com/isaac-mason/gatho',
-    },
-    {
-        type: 'repo',
-        title: 'gpucat',
-        image: 'gpucat.webp',
-        url: 'https://github.com/isaac-mason/gpucat',
-    },
-    {
-        type: 'repo',
-        title: 'compilecat',
-        image: 'compilecat.webp',
-        url: 'https://github.com/isaac-mason/compilecat',
-    },
-    {
-        type: 'repo',
-        title: 'packcat',
-        image: 'packcat.webp',
-        url: 'https://github.com/isaac-mason/packcat',
-    },
-    {
-        type: 'repo',
-        title: 'mathcat',
-        image: 'mathcat.webp',
-        url: 'https://github.com/isaac-mason/mathcat',
+        tags: ['navigation', 'js'],
     },
     {
         type: 'repo',
         title: 'recast-navigation-js',
         image: 'recast-navigation-js.webp',
         url: 'https://github.com/isaac-mason/recast-navigation-js',
+        tags: ['navigation', 'wasm'],
+    },
+    {
+        type: 'repo',
+        title: 'tumble',
+        image: 'tumble.webp',
+        url: 'https://github.com/isaac-mason/tumble',
+        tags: ['physics', 'c++', 'wasm'],
+    },
+    {
+        type: 'repo',
+        title: 'roam',
+        image: 'roam.webp',
+        url: 'https://github.com/isaac-mason/roam',
+        tags: ['navigation', 'c++', 'wasm'],
+    },
+    {
+        type: 'repo',
+        title: 'gatho',
+        image: 'gatho.webp',
+        url: 'https://github.com/isaac-mason/gatho',
+        tags: ['multiplayer', 'js'],
+    },
+    {
+        type: 'repo',
+        title: 'gpucat',
+        image: 'gpucat.webp',
+        url: 'https://github.com/isaac-mason/gpucat',
+        tags: ['webgpu', 'rendering', 'js'],
+    },
+    {
+        type: 'repo',
+        title: 'compilecat',
+        image: 'compilecat.webp',
+        url: 'https://github.com/isaac-mason/compilecat',
+        tags: ['compiler', 'js', 'experiment'],
+    },
+    {
+        type: 'repo',
+        title: 'packcat',
+        image: 'packcat.webp',
+        url: 'https://github.com/isaac-mason/packcat',
+        tags: ['serdes', 'multiplayer', 'js'],
+    },
+    {
+        type: 'repo',
+        title: 'mathcat',
+        image: 'mathcat.webp',
+        url: 'https://github.com/isaac-mason/mathcat',
+        tags: ['math', 'js'],
     },
     {
         type: 'repo',
         title: 'js-physics-benchmarks',
         image: 'js-physics-benchmarks.webp',
         url: 'https://github.com/isaac-mason/js-physics-benchmarks',
+        tags: ['physics', 'benchmark', 'js'],
+    },
+    {
+        type: 'repo',
+        title: 'box3d.js',
+        image: 'box3d.webp',
+        url: 'https://github.com/isaac-mason/box3d.js',
+        tags: ['physics', 'wasm'],
+    },
+    {
+        type: 'post',
+        title: 'npm i math',
+        image: 'post-math.webp',
+        url: 'https://x.com/isaac_mason_/status/2103495293392367639',
+        tags: ['launch'],
     },
     {
         type: 'post',
@@ -141,7 +185,7 @@ const entries: Entry[] = [
         title: 'marching cubes',
         image: 'marching-cubes.webp',
         url: 'https://sketches.isaacmason.com/sketch/marching-cubes',
-        tags: ['c++', 'webassembly'],
+        tags: ['c++', 'wasm'],
     },
     {
         type: 'sketch',
@@ -183,9 +227,12 @@ function EntryCard({ type, title, image: coverImage, url, tags }: Entry) {
         >
             <div className="relative">
                 <img src={coverImage} alt={title} className="w-full aspect-[4/3] object-cover block" />
-                <span className="absolute top-1.5 left-1.5 text-xs bg-black/70 text-white/70 px-1.5 py-0.5 leading-none">
-                    {type}
-                </span>
+                {/* repos get their own section, so only posts and sketches need telling apart */}
+                {type !== 'repo' && (
+                    <span className="absolute top-1.5 left-1.5 text-xs bg-black/70 text-white/70 px-1.5 py-0.5 leading-none">
+                        {type}
+                    </span>
+                )}
             </div>
             <div className="flex flex-col gap-2 p-2 sm:p-3 flex-1">
                 <span className="text-xs sm:text-sm tracking-wider leading-tight">{title}</span>
@@ -203,12 +250,29 @@ function EntryCard({ type, title, image: coverImage, url, tags }: Entry) {
     );
 }
 
+const repos = entries.filter((entry) => entry.type === 'repo');
+const posts = entries.filter((entry) => entry.type !== 'repo');
+
+function SectionHeader({ children }: { children: React.ReactNode }) {
+    return <h2 className="font-pixel text-white text-2xl md:text-4xl mb-5">{children}</h2>;
+}
+
+function EntryGrid({ entries }: { entries: Entry[] }) {
+    return (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+            {entries.map((entry) => (
+                <EntryCard key={entry.url} {...entry} />
+            ))}
+        </div>
+    );
+}
+
 export function Homepage() {
     return (
         <div className="min-h-screen flex flex-col">
             {/* Hero */}
             <div className="flex flex-col items-center justify-center pt-24 sm:pt-32 md:pt-40 pb-12 px-4">
-                <h1 className="text-white text-5xl md:text-8xl">Hey, I'm Isaac</h1>
+                <h1 className="font-pixel text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl">Hey, I'm Isaac</h1>
 
                 <p className="mt-4 text-base md:text-lg text-white/80 max-w-2xl text-center">
                     I'm a software engineer in Australia building open source technology for games and complex web applications.
@@ -222,17 +286,20 @@ export function Homepage() {
             </div>
 
             {/* Feed */}
-            <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 pb-16">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-                    {entries.map((entry) => (
-                        <EntryCard key={entry.url} {...entry} />
-                    ))}
-                </div>
+            <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 pb-16 flex flex-col gap-12">
+                <section>
+                    <SectionHeader>Projects</SectionHeader>
+                    <EntryGrid entries={repos} />
+                </section>
+                <section>
+                    <SectionHeader>Posts &amp; Sketches</SectionHeader>
+                    <EntryGrid entries={posts} />
+                </section>
             </main>
 
             {/* Experience */}
-            <section className="w-full max-w-2xl mx-auto px-4 sm:px-6 pb-16">
-                <h2 className="text-white text-lg md:text-2xl mb-6">Experience</h2>
+            <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+                <h2 className="font-pixel text-white text-2xl md:text-4xl mb-6">Experience</h2>
                 <div className="flex flex-col gap-8 text-base md:text-lg">
                     <div>
                         <h3 className="text-white text-base md:text-lg">Consulting - 2026 ~ Present</h3>
@@ -373,6 +440,18 @@ export function Homepage() {
                     </div>
                 </div>
             </section>
+
+            {/* Footer */}
+            <footer className="w-full max-w-5xl mx-auto px-4 sm:px-6">
+                <div className="py-8 border-t border-white/20 flex flex-wrap gap-4 justify-between items-center">
+                    <span className="font-pixel text-white/60">© {new Date().getFullYear()} Isaac Mason</span>
+                    <div className="flex gap-6 items-center">
+                        <Link href="https://github.com/isaac-mason">GitHub</Link>
+                        <Link href="https://x.com/isaac_mason_">X</Link>
+                        <Link href="https://www.linkedin.com/in/isaac-charles-grant-mason/">LinkedIn</Link>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }

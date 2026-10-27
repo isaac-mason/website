@@ -5,10 +5,18 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Geist Pixel";
+    src: url("/GeistPixel-Square.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
 @import "tailwindcss";
 
 @theme {
   --default-font-family: "Geist Sans", sans-serif;
+  --font-pixel: "Geist Pixel", monospace;
   --color-accent: #fb923c;
   --color-accent-hover: #fdba74;
 }
